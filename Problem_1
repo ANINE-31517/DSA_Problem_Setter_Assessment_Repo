@@ -123,6 +123,7 @@ class Problem1 {
                 }
             }
             System.out.println();
+            t-=1;
         }
 
     }

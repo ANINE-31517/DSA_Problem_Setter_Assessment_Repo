@@ -1,0 +1,131 @@
+#___________Problem_1__________#
+
+
+
+//__________Solution__________//
+
+//IN CPP//
+
+//Start//
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution {
+    public:
+        vector<int> EvenPaired(int n, vector<int> num1, vector<int>& num2) {
+            vector<int> ans;
+            unordered_map<int, int> num1_map;
+            unordered_map<int ,int> num2_map;
+            for(int i=0;i<n;i++) {
+                num1_map[num1[i]]++;
+            }
+            for(int i=0;i<n;i++) {
+                num2_map[num2[i]]++;
+            }
+            for(auto i: num1_map) {
+                if(num2_map.find(i.first)!=num2_map.end()) {
+                    if((i.second+num2_map[i.first])%2==0) {
+                        ans.push_back(i.first);
+                    }
+                }
+            }
+            return ans;
+        }
+};
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+        vector<int> num1(n, 0);
+        vector<int> num2(n, 0);
+        for(int i=0;i<n;i++) {
+            cin >> num1[i];
+        }
+        for(int i=0;i<n;i++) {
+            cin >> num2[i];
+        }
+        Solution ob;
+        vector<int> res=ob.EvenPaired(n, num1, num2);
+        if(res.size()==0) {
+            cout << -1;
+        }
+        else {
+            for(int i=0;i<res.size();i++) {
+                cout << res[i] << " ";
+            }
+        }
+        cout << endl;
+    }
+    return 0;
+}
+
+//End//
+
+
+
+//IN JAVA//
+
+//Start//
+
+import java.io.*;
+import java.util.*;
+
+class Solution {
+    public static ArrayList<Integer> EvenPaired(int n, int[] num1, int[] num2) {
+        ArrayList<Integer> ans=new ArrayList<>();
+        HashMap<Integer, Integer> num1_map=new HashMap<>();
+        HashMap<Integer, Integer> num2_map=new HashMap<>();
+        for(int i=0;i<n;i++) {
+            num1_map.put(num1[i],num1_map.getOrDefault(num1[i],0)+1);
+        } 
+        for(int i=0;i<n;i++) {
+            num2_map.put(num2[i],num2_map.getOrDefault(num2[i],0)+1);
+        }
+        for(Map.Entry<Integer, Integer> i: num1_map.entrySet()) {
+            if(num2_map.containsKey(i.getKey())) {
+                if((i.getValue()+num2_map.get(i.getKey()))%2==0) {
+                    ans.add(i.getKey());
+                }
+            }
+        }
+        return ans;
+    }
+}
+
+class Problem1 {
+    public static void main(String[] args) throws IOException {
+        int t;
+        Scanner sc=new Scanner(System.in);
+        t=sc.nextInt();
+        while (t>0) {
+            int n;
+            n=sc.nextInt();
+            int[] num1=new int[n];
+            int[] num2-new int[n];
+            for(int i=0;i<n;i++) {
+                num1[i]=sc.nextInt();
+            }
+            for(int i=0;i<n;i++) {
+                num2[i]=sc.nextInt();
+            }
+            Solution ob;
+            ArrayList<Integer> res=ob.EvenPaired(n, num1, num2);
+            if(res.size()==0) {
+                System.out.print(-1);
+            }
+            else {
+                for(int i=0;i<res.size();i++) {
+                    System.out.print(res.get(i)+" ");
+                }
+            }
+            System.out.println();
+        }
+
+    }
+}
+
+//End//

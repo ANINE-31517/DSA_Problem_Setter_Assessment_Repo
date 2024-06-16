@@ -14,6 +14,7 @@ The next line contains n space-separated integers, the elements of num2.
 Output:
 
 For each test case, print the numbers that appear in both arrays and have an even total count, separated by spaces. If no such numbers exist, print -1.
+
 Constraints:
 
 1 <= t <= 100

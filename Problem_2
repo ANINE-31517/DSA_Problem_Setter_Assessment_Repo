@@ -1,0 +1,132 @@
+#___________Problem_2__________#
+
+
+
+//__________Solution__________//
+
+//IN CPP//
+
+//Start//
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution {
+    public:
+        vector<char> CoExistingStrings(string s1, string s2) {
+            vector<char> ans;
+            unordered_map<char, int> s1_map;
+            unordered_map<char ,int> s2_map;
+            for(int i=0;i<s1.size();i++) {
+                s1_map[s1[i]]++;
+            }
+            for(int i=0;i<s2.size();i++) {
+                s2_map[s2[i]]++;
+            }
+            for(auto i: s1_map) {
+                if(islower(i.first)) {
+                    if(s2_map.find(toupper(i.first))!=s2_map.end()) {
+                        if((i.second+s2_map[toupper(i.first)])%2==0) {
+                            ans.push_back(i.first);
+                        }
+                    }
+                }
+                else {
+                    if(s2_map.find(tolower(i.first))!=s2_map.end()) {
+                        if((i.second+s2_map[tolower(i.first)])%2==0) {
+                            ans.push_back(i.first);
+                        }
+                    }                    
+                }
+            }
+            return ans;
+        }
+};
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        string s1,s2;
+        cin >> s1 >> s2;
+        Solution ob;
+        vector<char> res=ob.CoExistingStrings(s1, s2);
+        if(res.size()==0) {
+            cout << -1;
+        }
+        else {
+            for(int i=0;i<res.size();i++) {
+                cout << res[i] << " ";
+            }
+        }
+        cout << endl;
+    }
+    return 0;
+}
+
+//End//
+
+
+
+//IN JAVA//
+
+//Start//
+
+import java.io.*;
+import java.util.*;
+
+class Solution {
+    public static ArrayList<Character> CoExistingStrings(String s1, String s2) {
+        ArrayList<Character> ans=new ArrayList<>();
+        HashMap<Character, Integer> s1_map=new HashMap<>();
+        HashMap<Character, Integer> s2_map=new HashMap<>();
+        for(int i=0;i<s1.length();i++) {
+            s1_map.put(s1.charAt(i),s1_map.getOrDefault(s1.charAt(i),0)+1);
+        } 
+        for(int i=0;i<s2.length();i++) {
+            s2_map.put(s2.charAt(i),s2_map.getOrDefault(s2.charAt(i),0)+1);
+        }
+        for(Map.Entry<Character, Integer> i: s1_map.entrySet()) {
+            if(Character.isLowerCase(i.getKey())) {
+                if(s2_map.containsKey(Character.toUpperCase(i.getKey()))) {
+                    if((i.getValue()+s2_map.get(Character.toUpperCase(i.getKey())))%2==0) {
+                        ans.add(i.getKey());
+                    }
+                }
+            }
+            else {
+                if(s2_map.containsKey(Character.toLowerCase(i.getKey()))) {
+                    if((i.getValue()+s2_map.get(Character.toLowerCase(i.getKey())))%2==0) {
+                        ans.add(i.getKey());
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+    
+    public static void main(String[] args) throws IOException {
+        int t;
+        Scanner sc=new Scanner(System.in);
+        t=sc.nextInt();
+        while (t-->0) {
+            String s1,s2;
+            s1=sc.next();
+            s2=sc.next();
+            Solution ob=new Solution();
+            ArrayList<Character> res=ob.CoExistingStrings(s1, s2);
+            if(res.size()==0) {
+                System.out.print(-1);
+            }
+            else {
+                for(int i=0;i<res.size();i++) {
+                    System.out.print(res.get(i)+" ");
+                }
+            }
+            System.out.println();
+        }
+
+    }
+}
+
+//End//

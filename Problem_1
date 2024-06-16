@@ -1,5 +1,35 @@
 #___________Problem_1__________#
 
+Problem: Even Paired Numbers in Two Arrays
+
+Description: You are given two arrays num1 and num2 of size n. Your task is to find all numbers that appear in both arrays and have an even total count. The total count of a number is the sum of its occurrences in both arrays.
+
+Input:
+
+The first line contains an integer t, the number of test cases.
+For each test case, the first line contains an integer n, the size of the arrays.
+The next line contains n space-separated integers, the elements of num1.
+The next line contains n space-separated integers, the elements of num2.
+
+Output:
+
+For each test case, print the numbers that appear in both arrays and have an even total count, separated by spaces. If no such numbers exist, print -1.
+Constraints:
+
+1 <= t <= 100
+1 <= n <= 100000
+1 <= num1[i], num2[i] <= 100000
+
+Example:
+
+Input:
+2
+3
+1 2 3
+2 3 4
+4
+1 2 2 3
+1 2 3 4
 
 
 //__________Solution__________//

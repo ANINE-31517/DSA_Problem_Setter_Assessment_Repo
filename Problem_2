@@ -1,5 +1,31 @@
 #___________Problem_2__________#
 
+Problem: Co-Existing Characters in Two Strings
+
+Description: You are given two strings s1 and s2. Your task is to find all characters that co-exist in both strings, meaning they appear in both strings with different cases (one lowercase and one uppercase). The total count of a character is the sum of its occurrences in both strings. You need to find all characters that co-exist in both strings and have an even total count.
+
+Input:
+
+The first line contains an integer t, the number of test cases.
+For each test case, the next line contains two space-separated strings, s1 and s2.
+
+Output:
+
+For each test case, print the characters that co-exist in both strings and have an even total count, separated by spaces. If no such characters exist, print -1.
+
+Constraints:
+
+1 <= t <= 100
+1 <= s1.size(), s2.size() <= 100000
+
+Example:
+
+Input:
+2
+hello world
+World Hello
+abc def
+Def Abc
 
 
 //__________Solution__________//
